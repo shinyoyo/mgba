@@ -22,8 +22,11 @@ Emulation fixes:
  - GB Audio: Fix channel 1/2 reseting edge cases (fixes mgba.io/i/1925)
  - GB Audio: Properly apply per-model audio differences
  - GB Audio: Revamp channel rendering
+ - GB Audio: Fix APU re-enable timing glitch
+ - GB I/O: Fix writing to WAVE RAM behavior (fixes mgba.io/i/1334)
  - GB Memory: Add cursory cartridge open bus emulation (fixes mgba.io/i/2032)
  - GB Serialize: Fix loading MBC1 states that affect bank 0 (fixes mgba.io/i/2402)
+ - GB SIO: Fix bidirectional transfer starting (fixes mgba.io/i/2290)
  - GB Video: Draw SGB border pieces that overlap GB graphics (fixes mgba.io/i/1339)
  - GBA: Improve timing when not booting from BIOS
  - GBA: Fix expected entry point for multiboot ELFs (fixes mgba.io/i/2450)
@@ -41,7 +44,9 @@ Emulation fixes:
  - GBA Video: Fix Hblank timing (fixes mgba.io/i/2131, mgba.io/i/2310)
  - GBA Video: Fix rare crash in modes 3-5
  - GBA Video: Fix sprites with mid-frame palette changes in GL (fixes mgba.io/i/2476)
+ - GBA Video: Fix OBJ tile wrapping with 2D char mapping (fixes mgba.io/i/2443)
 Other fixes:
+ - ARM: Disassemble Thumb mov pseudo-instruction properly
  - Core: Don't attempt to restore rewind diffs past start of rewind
  - Core: Fix the runloop resuming after a game has crashed (fixes mgba.io/i/2451)
  - Core: Fix crash if library can't be opened
@@ -53,6 +58,7 @@ Other fixes:
  - Qt: Fix some hangs when using the debugger console
  - Qt: Fix crash when clicking past last tile in viewer
  - Qt: Fix preloading for ROM replacing
+ - Qt: Fix screen not displaying on Wayland (fixes mgba.io/i/2190)
  - VFS: Failed file mapping should return NULL on POSIX
 Misc:
  - Core: Suspend runloop when a core crashes
@@ -64,6 +70,7 @@ Misc:
  - GBA: Automatically skip BIOS if ROM has invalid logo
  - GBA: Refine multiboot detection (fixes mgba.io/i/2192)
  - GBA Cheats: Implement "never" type codes (closes mgba.io/i/915)
+ - GBA Memory: Implement adjustable EWRAM waitstates (closes mgba.io/i/1276)
  - GBA DMA: Enhanced logging (closes mgba.io/i/2454)
  - GBA Video: Implement layer placement for OpenGL renderer (fixes mgba.io/i/1962)
  - GBA Video: Fix highlighting for sprites with mid-frame palette changes

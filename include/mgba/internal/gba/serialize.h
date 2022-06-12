@@ -20,7 +20,7 @@ extern MGBA_EXPORT const uint32_t GBASavestateVersion;
 mLOG_DECLARE_CATEGORY(GBA_STATE);
 
 /* Savestate format:
- * 0x00000 - 0x00003: Version Magic (0x01000005)
+ * 0x00000 - 0x00003: Version Magic (0x01000006)
  * 0x00004 - 0x00007: BIOS checksum (e.g. 0xBAAE187F for official BIOS)
  * 0x00008 - 0x0000B: ROM CRC32
  * 0x0000C - 0x0000F: Master cycles
@@ -225,9 +225,9 @@ mLOG_DECLARE_CATEGORY(GBA_STATE);
  * 0x00324 - 0x00327: Interruptable BIOS stall cycles
  * 0x00328 - 0x00367: Matrix memory mapping table
  * 0x00368 - 0x0036F: Reserved (leave zero)
- * 0x00370 - 0x00377: Audio FIFO A samples
- * 0x00378 - 0x0037F: Audio FIFO B samples
- * 0x00380 - 0x003FF: Reserved (leave zero)
+ * 0x00370 - 0x0037F: Audio FIFO A samples
+ * 0x00380 - 0x0038F: Audio FIFO B samples
+ * 0x00390 - 0x003FF: Reserved (leave zero)
  * 0x00400 - 0x007FF: I/O memory
  * 0x00800 - 0x00BFF: Palette
  * 0x00C00 - 0x00FFF: OAM
@@ -387,11 +387,11 @@ struct GBASerializedState {
     uint32_t reservedMatrix[2];
 
     struct {
-        int8_t chA[8];
-        int8_t chB[8];
+        int8_t chA[16];
+        int8_t chB[16];
     } samples;
 
-	uint32_t reserved[32];
+	uint32_t reserved[28];
 
 	uint16_t io[SIZE_IO >> 1];
 	uint16_t pram[SIZE_PALETTE_RAM >> 1];
